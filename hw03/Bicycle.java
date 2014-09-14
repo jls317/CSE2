@@ -2,6 +2,10 @@
     CSE 2
     HW03-Bicycle
     09/10/2014
+    
+    Purpose: This program takes inputs of time and wheel rotations
+    of a bicycle trip to give calculations of the trip distance
+    and average trip speed.
 */
 
 import java.util.Scanner;       //import java scanner
