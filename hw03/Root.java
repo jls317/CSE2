@@ -26,13 +26,14 @@ public class Root {
        double diff=10;                          //defines variable difference (arbitrary)
        int x=0;                                 //defines x the counter in our while statement
        double guess1=input/3;                   //Initial value of guess (4 calculation only)
+       double L= 1;                             //Accuracy of while loop
       
-       while (diff>1){                          //begins while statement (1 is the accuracy)
+       while (diff<-L || diff>L){                          //begins while statement (1 is the accuracy)
                                                 //the lower the number the higher the accuracy
            guess=((2*guess*guess*guess)+input)/(3*guess*guess); //guess formula to generate cube root
            x+=1;                                //counter (everytime while loop occurs count goes up 1)
-           diff=Math.abs(input-(guess*guess*guess));    //compares "guess cube root" with input number
-                                                        //when within 1 the loop will stop
+           diff=(input-(guess*guess*guess));    //compares "guess cube root" with input number
+                                                //when within 1 the loop will stop
        }
         
         
