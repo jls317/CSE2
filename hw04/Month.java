@@ -39,13 +39,13 @@ public class Month {        //starting class for program
                 }
             }
             if (month==3){                                                      //if month is 3
-                System.out.println("Month 3 (March) has 30 days.");             //march has 30 days
+                System.out.println("Month 3 (March) has 31 days.");             //march has 30 days
             }
             if (month==4){                                                      //if month is 4
                 System.out.println("Month 4 (April) has 30 days.");             //april has 30 days
             }
             if (month==5){                                                      //if month is 5
-                System.out.println("Month 5 (May) has 30 days.");               //may has 30 days
+                System.out.println("Month 5 (May) has 31 days.");               //may has 30 days
             }
             if (month==6){                                                      //if month is 6 
                 System.out.println("Month 6 (June) has 30 days.");              //june has 30 days
