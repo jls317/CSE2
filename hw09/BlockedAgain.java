@@ -60,28 +60,36 @@ public class BlockedAgain {                                                     
         
         int x,y;                                                                //initializes x and y
         for (y = 1; y <= n; y++) {                                              //y rows of numbers, 1 for each n
-                    for (int k = 0; k < y; k++) {                               //repeats each number, that number of times
-                        for (int j = -1 * y + n + 1; j > 0; j--) {              //centers the numbers, based on what number the 
-                                                                                    //program is on (y) and the total number of
-                                                                                    //numbers (n)
-                            System.out.print(" ");                              //blank spaces
-                        }
-                        for (x = 0; x < 2 * y - 1; x++) {                       //prints out number (x) of y (odd number that
+            block (y,n);
+            System.out.println("");                                     //prints next line
+        }
+    }
+    
+    public static void line(int y, int n){
+        for (int j = -1 * y + n + 1; j > 0; j--) {              //centers the numbers, based on what number the 
+                                                                //program is on (y) and the total number of
+                                                                //numbers (n)
+            System.out.print(" ");                              //blank spaces
+        }
+    }
+    
+    public static void block(int y, int n){
+for (int k = 0; k < y; k++) {                               //repeats each number, that number of times
+                        
+                        line(y,n);
+               
+                        for (int x = 0; x < 2 * y - 1; x++) {                       //prints out number (x) of y (odd number that
                                                                                     //gradually increase going down the stack)
                             System.out.print(y);                                
                         }
                         System.out.println("");                                 //prints for next line
-                    }                                                                                                             
-                    for (int j = -1 * y + n + 1; j > 0; j--) {                  //centers the numbers (same explanation as before---|)
-                        System.out.print(" ");
-                    }
-                    for (x = 0; x < 2 * y - 1; x++) {                           //prints out dividing line based on number (x) of y
+                    }   
+                    
+                    line(y,n);
+                    
+                    
+                    for (int x = 0; x < 2 * y - 1; x++) {                           //prints out dividing line based on number (x) of y
                         System.out.print("-");
                     }
-                    System.out.println("");                                     //prints next line
-                }
-                //for (int m = 2; m > 0; m--) {                                   //spacing before next set of code (while loops)
-                  //  System.out.println("");
-                //}
-    }
+}
 }
