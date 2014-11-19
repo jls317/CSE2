@@ -97,20 +97,20 @@ public static void convert(int hand[]){                                         
  
   
     
-public static boolean exactlyOneDup(int num[]){
-    int n=0;
-      for (int i = (num.length) - 1 ; i >=0 ; i--){
-          for (int j = (num.length) - 1 ; j>=0; j--){
-              if(i != j){
-                  if(num[i] == num[j]){
-                      n++;
+public static boolean exactlyOneDup(int num[]){                                 //exactlyOneDup method
+    int n=0;                                                                    //initialize
+      for (int i = (num.length) - 1 ; i >=0 ; i--){                             //for each value in array
+          for (int j = (num.length) - 1 ; j>=0; j--){                           //for each value in array
+              if(i != j){                                                       //checks if both arrays are at same value
+                  if(num[i] == num[j]){                                         //if array value is equal
+                      n++;                                                      //increment n
                   }
               }
           }
       }
-      n/=2;
-      if (n==1){
-          return true;
+      n/=2;                                                                     //each duplicate will appear 2x :divide by 2
+      if (n==1){                                                                //if n is equal to 1
+          return true;                                                          
       }
       else{return false;}
   }
@@ -118,48 +118,49 @@ public static boolean exactlyOneDup(int num[]){
 
     
     
-public static void simulateOdds(){
-    int[] hand = new int [53];
-    int[] result = new int [14];
-    int n=0;
-    for(int j=10000; j > 0 ; j--){
-    hand= showOneHand();
-    for(int i=4; i >=0 ; i--){
-        hand[i]=(hand[i])%13;
+public static void simulateOdds(){                                              //simulateOdds method
+    int[] hand = new int [53];                                                  //initialize hand array
+    int[] result = new int [14];                                                //initialize result array
+    int n=0;                                                                    //initialize n
+    for(int j=10000; j > 0 ; j--){                                              //for 10000 runs
+    hand= showOneHand();                                                        //get hand
+    for(int i=4; i >=0 ; i--){                                                  //for each card in hand
+        hand[i]=(hand[i])%13;                                                   //find rank of card
     }
-    if(exactlyOneDup(hand)){
-        int num = OneDupNumber(hand);
-        for(int i = 12 ; i>=0 ; i--){
-            if(i==num){
-                result[num]++;
+    if(exactlyOneDup(hand)){                                                    //check for only one duplicate
+        int num = OneDupNumber(hand);                                           //call oneDupNumber to find the duplicate
+        for(int i = 12 ; i>=0 ; i--){                                           //scan through 13 possible numbers
+            if(i==num){                                                         //if there is a match
+                result[num]++;                                                  //increment that number's corresponding counter
             }
         }
     }
-    else{n++;}
+    else{n++;}                                                                  //else no matches (or too many)
     }
-    System.out.println("Rank    Frequency of Each Pair");
+    System.out.println("Rank    Frequency of Each Pair");                       //print
     String resultString[]={"A       ","2       ","3       ","4       ","5       ","6       ","7       ","8       ","9       ","10      ","J       ","Q       ","K       "};
-    for(int i=0; i<=12 ; i++){
-        System.out.print(resultString[i]);
-        System.out.println(result[i]);
+                                                                                //prints possible answers
+    for(int i=0; i<=12 ; i++){                                                  //for each number print
+        System.out.print(resultString[i]);                                      //the number
+        System.out.println(result[i]);                                          //how many times that number
     }
     System.out.println("----------------");
-    System.out.println("Total not exactly one pair: "+n);
+    System.out.println("Total not exactly one pair: "+n);                       //print number that there was not exactly one pair
 }
 
 
 
-public static int OneDupNumber(int num[]){
-    int dup= -1;
-        for (int i = (num.length) - 1 ; i >=0 ; i--){
-            for (int j = (num.length) - 1 ; j>=0; j--){
-                if(i != j){
-                    if(num[i] == num[j]){
-                        dup = num[i];
-                    }
+public static int OneDupNumber(int num[]){                                      //OneDupNUmber method
+    int dup= -1;                                                                //initialize
+        for (int i = (num.length) - 1 ; i >=0 ; i--){                           //scan through each number
+            for (int j = (num.length) - 1 ; j>=0; j--){                         //scan through each number
+                if(i != j){                                                     //compare locations...if not the same
+                    if(num[i] == num[j]){                                       //if numbers match at different locations
+                        dup = num[i];                                           //that location has duplicate
+                    }  
                 }
             }
         }
-    return dup;
+    return dup;                                                                 //return duplicate
     }
 }
